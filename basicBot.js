@@ -1180,6 +1180,11 @@
                     }
                 }
                  **/
+                 if(msg.indexOf("Dobrodosao/la") !== -1){                
+                  setTimeout(function (id) {
+                  API.moderateDeleteChat(id);
+                    }, 60 * 1000, chat.cid);
+                      }
                 if (msg.indexOf('http://adf.ly/') > -1) {
                     API.moderateDeleteChat(chat.cid);
                     API.sendChat(subChat(basicBot.chat.adfly, {name: chat.un}));
