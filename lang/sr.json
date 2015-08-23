@@ -65,7 +65,7 @@
     "bouncer": "Bot ne mo\u017ee premestati ljude ukoliko je pokrenut od strane bouncera.",
     "online": "\/me %%BOTNAME%% %%VERSION%% online!",
     "welcome": "\/me Dobrodošao/la u BALKAN - Dubstep, pop i rap zajednicu ! %%NAME%% <3",
-    "welcomeback": "\/me Dobrodošao/la nazad %%NAME%% <3",
+    "welcomeback": "\/me Dobrodošao/la nazad:heart: %%NAME%% ",
     "songknown": "\/me @%%NAME%%, Ova pesma je u DJ istoriji.",
     "notavailable": "\/me @%%NAME%%, the song you played was not available.",
     "timelimit": "\/me @%%NAME%%, Tvoja pesma je duza od %%MAXLENGTH%% minuta, potrebna ti je dozvola da pustas duze pesme.",
