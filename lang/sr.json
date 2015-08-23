@@ -64,7 +64,7 @@
     "greyuser": "Samo bounceri i vi\u0161i rank mogu pokrenuti bota.",
     "bouncer": "Bot ne mo\u017ee premestati ljude ukoliko je pokrenut od strane bouncera.",
     "online": "\/me %%BOTNAME%% %%VERSION%% online!",
-    "welcome": "\/me Dobrodo\u0161ao %%NAME%%",
+    "welcome": "\/me Dobrodošao! <3 %%NAME%%",
     "welcomeback": "\/me Dobrodo\u0161ao nazad, %%NAME%%",
     "songknown": "\/me @%%NAME%%, Ova pesma je u DJ istoriji.",
     "notavailable": "\/me @%%NAME%%, the song you played was not available.",
