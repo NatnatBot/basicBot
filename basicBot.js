@@ -1180,7 +1180,7 @@
                     }
                 }
                  **/
-                 if(msg.indexOf("Dobrodosao/la") !== -1){                
+                 if(msg.indexOf("Dobrodosao") !== -1){                
                   setTimeout(function (id) {
                   API.moderateDeleteChat(id);
                     }, 60 * 1000, chat.cid);
