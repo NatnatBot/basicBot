@@ -308,7 +308,7 @@
             commandLiteral: "!",
             blacklists: {
                 NSFW: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/NSFWlist.json",
-                OP: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/OPlist.json",
+                OP: "https://raw.githubusercontent.com/NatnatBot/basicBot-customization/master/blacklists/OPlist.json",
                 BANNED: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/BANNEDlist.json"
             }
         },
