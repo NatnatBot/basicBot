@@ -203,5 +203,4 @@
     "website": "\/me Molimo posetite nasu web stranicu: %%LINK%%",
     "youtube": "\/me [%%NAME%%] Pretplatite se na na\u0161 YouTube kanal: %%LINK%%",
     "songstatistics": "\/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W\/%%GRABS%%G\/%%MEHS%%M."
-"if(msg.indexOf("Dobrodošao/la nazad") !== -1{setTimeout(function(id);}, 60 * 1000, chat.cid);"
 }
