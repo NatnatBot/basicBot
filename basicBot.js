@@ -363,7 +363,7 @@
             },
             newBlacklisted: [],
             newBlacklistedSongFunction: null
-            roulette: {
+            /*roulette: {
                 rouletteStatus: false,
                 participants: [],
                 countdown: null,
@@ -389,7 +389,7 @@
                 }
             },
             usersUsedThor: []
-        },
+        },*/
         User: function (id, name) {
             this.id = id;
             this.username = name;
@@ -1198,7 +1198,7 @@
                     return true;
                 }
 
-                var rlJoinChat = basicBot.chat.roulettejoin;
+                /*var rlJoinChat = basicBot.chat.roulettejoin;
                 var rlLeaveChat = basicBot.chat.rouletteleave;
 
                 var joinedroulette = rlJoinChat.split('%%NAME%%');
@@ -1216,7 +1216,7 @@
                     return true;
                 }
                 return false;
-            },
+            },*/
             commandCheck: function (chat) {
                 var cmd;
                 if (chat.message.charAt(0) === basicBot.settings.commandLiteral) {
