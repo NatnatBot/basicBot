@@ -3303,7 +3303,7 @@
                     else {
                       if (basicBot.settings.thorCommand){
                         var id = chat.uid,
-                              isDj = API.getDJ().id == id ? true : false,
+                              isDj = API.getDJ() == id ? true : false,
                               from = chat.un,
                               djlist = API.getWaitList(),
                               inDjList = false,
