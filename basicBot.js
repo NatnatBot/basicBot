@@ -1,5 +1,5 @@
 /**
- *Copyright 2014 Yemasthui
+ *Copyright 2015 bscBot
  *Modifications (including forks) of the code to fit personal needs are allowed only for personal use and should refer back to the original source.
  *This software is not for profit, any extension, or unauthorised person providing this software is not authorised to be in a position of any monetary gain from this use of this software. Any and all money gained under the use of the software (which includes donations) must be passed on to the original author.
  */
@@ -231,11 +231,18 @@
         return str;
     };
 
-    var botCreator = "Matthew (Yemasthui)";
+    var botCreator = "The Basic Team";
     var botMaintainer = "Benzi"
     var botCreatorIDs = ["3851534", "4105209"];
 
     var basicBot = {
+        version: "2.8.15",
+        status: false,
+        name: "basicBot",
+        loggedInID: null,
+        scriptLink: "https://rawgit.com/bscBot/source/master/basicBot.js",
+        cmdLink: "http://git.io/245Ppg",
+        chatLink: "https://rawgit.com/var basicBot = {
         version: "v1.1.2",
         status: false,
         name: "Natnat BOT",
@@ -277,6 +284,8 @@
             maximumSongLength: 6,
             autodisable: false,
             commandCooldown: 6,
+            thorCommand: true,
+            thorCooldown: 10,
             usercommandsEnabled: true,
             skipPosition: 3,
             skipReasons: [
@@ -360,8 +369,8 @@
 
             },
             newBlacklisted: [],
-            newBlacklistedSongFunction: null
-            /*roulette: {
+            newBlacklistedSongFunction: null,
+            roulette: {
                 rouletteStatus: false,
                 participants: [],
                 countdown: null,
@@ -384,8 +393,10 @@
                     setTimeout(function (winner, pos) {
                         basicBot.userUtilities.moveUser(winner, pos, false);
                     }, 1 * 1000, winner, pos);
-                }*/
+                }
             },
+            usersUsedThor: []
+        },
         User: function (id, name) {
             this.id = id;
             this.username = name;
@@ -1179,11 +1190,6 @@
                     }
                 }
                  **/
-                 if(msg.indexOf("Dobrodošao/la") !== -1){                
-                  setTimeout(function (id) {
-                  API.moderateDeleteChat(id);
-                    }, 60 * 1000, chat.cid);
-                      }
                 if (msg.indexOf('http://adf.ly/') > -1) {
                     API.moderateDeleteChat(chat.cid);
                     API.sendChat(subChat(basicBot.chat.adfly, {name: chat.un}));
@@ -1194,7 +1200,7 @@
                     return true;
                 }
 
-                /*var rlJoinChat = basicBot.chat.roulettejoin;
+                var rlJoinChat = basicBot.chat.roulettejoin;
                 var rlLeaveChat = basicBot.chat.rouletteleave;
 
                 var joinedroulette = rlJoinChat.split('%%NAME%%');
@@ -1212,7 +1218,7 @@
                     return true;
                 }
                 return false;
-            },*/
+            },
             commandCheck: function (chat) {
                 var cmd;
                 if (chat.message.charAt(0) === basicBot.settings.commandLiteral) {
@@ -2364,7 +2370,7 @@
                 }
             },
 
-            /*joinCommand: {
+            joinCommand: {
                 command: 'join',
                 rank: 'user',
                 type: 'exact',
@@ -2378,7 +2384,7 @@
                         }
                     }
                 }
-            },*/
+            },
 
             jointimeCommand: {
                 command: 'jointime',
@@ -2477,7 +2483,7 @@
                         if (msg.length <= cmd.length + 1) return API.sendChat(subChat(basicBot.chat.currentlang, {language: basicBot.settings.language}));
                         var argument = msg.substring(cmd.length + 1);
 
-                        $.get("https://rawgit.com/Yemasthui/basicBot/master/lang/langIndex.json", function (json) {
+                        $.get("https://rawgit.com/bscBot/source/master/lang/langIndex.json", function (json) {
                             var langIndex = json;
                             var link = langIndex[argument.toLowerCase()];
                             if (typeof link === "undefined") {
@@ -2493,7 +2499,7 @@
                 }
             },
 
-            /*leaveCommand: {
+            leaveCommand: {
                 command: 'leave',
                 rank: 'user',
                 type: 'exact',
@@ -2508,7 +2514,7 @@
                         }
                     }
                 }
-            },*/
+            },
 
             linkCommand: {
                 command: 'link',
@@ -2978,7 +2984,7 @@
                 }
             },
 
-            /*rouletteCommand: {
+            rouletteCommand: {
                 command: 'roulette',
                 rank: 'mod',
                 type: 'exact',
@@ -2991,7 +2997,7 @@
                         }
                     }
                 }
-            },*/
+            },
 
             rulesCommand: {
                 command: 'rules',
@@ -3205,9 +3211,9 @@
 
                         /*
                         // least efficient way to go about this, but it works :)
-                        if (msg.length > 256){
-                            firstpart = msg.substr(0, 256);
-                            secondpart = msg.substr(256);
+                        if (msg.length > 250){
+                            firstpart = msg.substr(0, 250);
+                            secondpart = msg.substr(250);
                             API.sendChat(firstpart);
                             setTimeout(function () {
                                 API.sendChat(secondpart);
@@ -3219,8 +3225,8 @@
                         */
 
                         // This is a more efficient solution
-                        if (msg.length > 241){
-                            var split = msg.match(/.{1,241}/g);
+                        if (msg.length > 250){
+                            var split = msg.match(/.{1,250}/g);
                             for (var i = 0; i < split.length; i++) {
                                 var func = function(index) {
                                     setTimeout(function() {
@@ -3288,7 +3294,76 @@
                     }
                 }
             },
-            
+
+            thorCommand: {
+              command: 'thor',
+              rank: 'user',
+              type: 'exact',
+              functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                      if (basicBot.settings.thorCommand){
+                        var id = chat.uid,
+                              isDj = API.getDJ().id == id ? true : false,
+                              from = chat.un,
+                              djlist = API.getWaitList(),
+                              inDjList = false,
+                              oldTime = 0,
+                              usedThor = false,
+                              indexArrUsedThor,
+                              thorCd = false,
+                              timeInMinutes = 0,
+                              worthyAlg = Math.floor(Math.random() * 10),
+                              worthy = worthyAlg == 10 ? true : false;
+
+                          for (var i = 0; i < djlist.length; i++) {
+                              if (djlist[i].id == id)
+                                  inDjList = true;
+                          }
+
+                          if (inDjList) {
+                              for (var i = 0; i < basicBot.room.usersUsedThor.length; i++) {
+                                  if (basicBot.room.usersUsedThor[i].id == id) {
+                                      oldTime = basicBot.room.usersUsedThor[i].time;
+                                      usedThor = true;
+                                      indexArrUsedThor = i;
+                                  }
+                              }
+
+                              if (usedThor) {
+                                  timeInMinutes = (basicBot.settings.thorCooldown + 1) - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
+                                  thorCd = timeInMinutes > 0 ? true : false;
+                                  if (thorCd == false)
+                                      basicBot.room.usersUsedThor.splice(indexArrUsedThor, 1);
+                              }
+
+                              if (thorCd == false || usedThor == false) {
+                                  var user = {id: id, time: Date.now()};
+                                  basicBot.room.usersUsedThor.push(user);
+                              }
+                          }
+
+                          if (!inDjList) {
+                              return API.sendChat(subChat(basicBot.chat.thorNotClose, {name: from}));
+                          } else if (thorCd) {
+                              return API.sendChat(subChat(basicBot.chat.thorcd, {name: from, time: timeInMinutes}));
+                          }
+
+                          if (worthy) {
+                            if (API.getWaitListPosition(id) != 0)
+                            basicBot.userUtilities.moveUser(id, 1, false);
+                            API.sendChat(subChat(basicBot.chat.thorWorthy, {name: from}));
+                          } else {
+                            if (API.getWaitListPosition(id) != djlist.length - 1)
+                            basicBot.userUtilities.moveUser(id, djlist.length, false);
+                            API.sendChat(subChat(basicBot.chat.thorNotWorthy, {name: from}));
+                          }
+                        }
+                    }
+                }
+            },
+
             timeguardCommand: {
                 command: 'timeguard',
                 rank: 'bouncer',
@@ -3590,6 +3665,44 @@
                     }
                 }
             },
+            
+            //Custom Commands
+            
+            TruthCommand: {
+                command: 'truth',
+                rank: 'user',
+                type: 'startsWith',
+                getTruth: function (chat) {
+                    var c = Math.floor(Math.random() * basicBot.chat.Truths.length);
+                    return basicBot.chat.Truths[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(subChat(basicBot.chat.truth, {name: chat.un, fortune: this.getTruth()}));
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.trutherror, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.trutherror, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.trutherror, {name: name}));
+                            }
+                        }
+                    }
+                }
+            },
 
             whoisCommand: {
                 command: 'whois',
@@ -3667,45 +3780,6 @@
                     }
                 }
             },
-            
-            //Custom Commands
-            
-            TruthCommand: {
-                command: 'truth',
-                rank: 'user',
-                type: 'startsWith',
-                getTruth: function (chat) {
-                    var c = Math.floor(Math.random() * basicBot.chat.Truths.length);
-                    return basicBot.chat.Truths[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(subChat(basicBot.chat.truth, {name: chat.un, fortune: this.getTruth()}));
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.trutherror, {name: name}));
-                            }
-                            else if (user.username === chat.un) {
-                                return API.sendChat(subChat(basicBot.chat.trutherror, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.trutherror, {name: name}));
-                            }
-                        }
-                    }
-                }
-            },
-
 
             youtubeCommand: {
                 command: 'youtube',
