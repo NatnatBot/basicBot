@@ -1198,7 +1198,7 @@
                     return true;
                 }
 
-                /*var rlJoinChat = basicBot.chat.roulettejoin;
+                var rlJoinChat = basicBot.chat.roulettejoin;
                 var rlLeaveChat = basicBot.chat.rouletteleave;
 
                 var joinedroulette = rlJoinChat.split('%%NAME%%');
@@ -1214,7 +1214,7 @@
                         API.moderateDeleteChat(id);
                     }, 5 * 1000, chat.cid);
                     return true;
-                }*/
+                }
                 return false;
             },
             commandCheck: function (chat) {
