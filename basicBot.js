@@ -236,13 +236,6 @@
     var botCreatorIDs = ["3851534", "4105209"];
 
     var basicBot = {
-        version: "2.8.15",
-        status: false,
-        name: "basicBot",
-        loggedInID: null,
-        scriptLink: "https://rawgit.com/bscBot/source/master/basicBot.js",
-        cmdLink: "http://git.io/245Ppg",
-        chatLink: "https://rawgit.com/var basicBot = {
         version: "v1.1.2",
         status: false,
         name: "Natnat BOT",
@@ -284,9 +277,9 @@
             maximumSongLength: 6,
             autodisable: false,
             commandCooldown: 6,
+            usercommandsEnabled: true,
             thorCommand: true,
             thorCooldown: 10,
-            usercommandsEnabled: true,
             skipPosition: 3,
             skipReasons: [
                 ["theme", "This song does not fit the room theme. "],
