@@ -238,7 +238,7 @@
     var basicBot = {
         version: "v1.1.2",
         status: false,
-        name: "Natnat BOT",
+        name: "BalkanPower BOT",
         loggedInID: null,
         scriptLink: "https://rawgit.com/NatnatBot/basicBot/master/basicBot.js",
         cmdLink: "http://git.io/245Ppg",
@@ -248,7 +248,7 @@
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "Natnat BOT",
+            botName: "BalkanPower BOT",
             language: "serbian",
             chatLink: "https://rawgit.com/NatnatBot/basicBot/master/lang/sr.json",
             scriptLink: "https://rawgit.com/NatnatBot/basicBot/master/basicBot.js",
