@@ -1188,9 +1188,9 @@
                     API.sendChat(subChat(basicBot.chat.adfly, {name: chat.un}));
                     return true;
                 }
-                if (msg.indexOf('ciker') > 0 || msg.indexOf('http://origem-woot.tk') > 0 || msg.indexOf('party.dj') > 0 || msg.indexOf('origem') > 0 || msg.indexOf('autojoin disabled') > 0 || msg.indexOf('AFK message disabled') > 0) {
+                if(msg.indexOf("ciker") !== -1 || msg.indexOf("http://origem.woot.tk") !== -1 || msg.indexOf("party.dj") !== -1 || msg.indexOf("Ciker") !== -1 || msg.indexOf("ciker") !== -1 || msg.indexOf("party.dj") !== -1){                
                     API.moderateDeleteChat(chat.cid);
-                    return true;
+      
                 }
                  if (msg.indexOf('https://plug.dj/') > -1) {
                     API.moderateDeleteChat(chat.cid);
