@@ -1291,8 +1291,8 @@
                 'gringo', 'fuder', 'foder', 'hua', 'ahue', 'modafuka', 'modafoka', 'mudafuka', 'mudafoka', 'ooooooooooooooo', 'foda'
             ],
             curses: [
-                'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka'
-            ]
+                'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka', 'party.dj', 'Party.dj', 'Origem', 'OW', 'origem woot', 'http://www.origem.ga/', 'https://www.origem-woot.tk/'
+            ]http://www.origem.ga/
         },
         connectAPI: function () {
             this.proxy = {
@@ -1850,7 +1850,7 @@
 
             botnameCommand: {
                 command: 'botname',
-                rank: 'manager',
+                rank: 'mod',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -2262,7 +2262,7 @@
 
             gifCommand: {
                 command: ['gif', 'giphy'],
-                rank: 'user',
+                rank: 'bouncer',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -2447,7 +2447,7 @@
 
             killCommand: {
                 command: 'kill',
-                rank: 'bouncer',
+                rank: 'cohost',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -3442,15 +3442,13 @@
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    if (!basicbot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        $(".icon-population").click();
-                        $(".icon-ban").click();
-                        setTimeout(function (chat) {
+                        $.getJSON('/_/bans', function (json){
                             var msg = chat.message;
-                            if (msg.length === cmd.length) return API.sendChat();
+                            if (msg.length === cmd.length) return;
                             var name = msg.substring(cmd.length + 2);
-                            var bannedUsers = API.getBannedUsers();
+                            var bannedUsers = json.data;
                             var found = false;
                             var bannedUser = null;
                             for (var i = 0; i < bannedUsers.length; i++) {
@@ -3460,16 +3458,10 @@
                                     found = true;
                                 }
                             }
-                            if (!found) {
-                                $(".icon-chat").click();
-                                return API.sendChat(subChat(basicBot.chat.notbanned, {name: chat.un}));
-                            }
+                            if (!found) return API.sendChat(subChat(basicbot.chat.notbanned, {name: chat.un}));
                             API.moderateUnbanUser(bannedUser.id);
-                            console.log("Unbanned " + name);
-                            setTimeout(function () {
-                                $(".icon-chat").click();
-                            }, 1000);
-                        }, 1000, chat);
+                            console.log('Unbanned:', name);
+                        });
                     }
                 }
             },
