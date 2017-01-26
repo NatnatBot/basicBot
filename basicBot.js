@@ -1292,7 +1292,7 @@
             ],
             curses: [
                 'nigger', 'faggot', 'nigga', 'niqqa', 'motherfucker', 'modafocka', 'party.dj', 'Party.dj', 'Origem', 'OW', 'origem woot', 'http://www.origem.ga/', 'https://www.origem-woot.tk/'
-            ]http://www.origem.ga/
+            ]
         },
         connectAPI: function () {
             this.proxy = {
