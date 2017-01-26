@@ -231,14 +231,14 @@
         return str;
     };
 
-    var botCreator = "The Basic Team";
-    var botMaintainer = "Benzi"
-    var botCreatorIDs = ["3851534", "4105209"];
+    var botCreator = "NextExit";
+    var botMaintainer = "NextExit"
+    var botCreatorIDs = ["9835492"];
 
     var basicBot = {
         version: "v1.1.2",
         status: false,
-        name: "BalkanPower BOT",
+        name: "Lilly ღ",
         loggedInID: null,
         scriptLink: "https://rawgit.com/NatnatBot/basicBot/master/basicBot.js",
         cmdLink: "http://git.io/245Ppg",
@@ -248,7 +248,7 @@
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "BalkanPower BOT",
+            botName: "Lilly ღ",
             language: "serbian",
             chatLink: "https://rawgit.com/NatnatBot/basicBot/master/lang/sr.json",
             scriptLink: "https://rawgit.com/NatnatBot/basicBot/master/basicBot.js",
@@ -301,7 +301,7 @@
             opLink: null,
             rulesLink: null,
             themeLink: null,
-            fbLink: "https://www.facebook.com/BalkanPowerRadio",
+            fbLink: "http://bit.ly/2jUTZnK",
             youtubeLink: null,
             website: null,
             intervalMessages: [],
