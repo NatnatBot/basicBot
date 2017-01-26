@@ -181,7 +181,7 @@
     "cookie": "\/me @%%NAMETO%%, %%NAMEFROM%% %%COOKIE%%",
     "cycleguardtime": "\/me [@%%NAME%%] CycleGuard pode\u0161en na %%TIME%% minuta.",
     "dclookuprank": "\/me [@%%NAME%%] Samo bounceri i vi\u0161i rank mogu dclookup za ostale.",
-    "emojilist": "\/me Emoji lista: %%http://www.emoji-cheat-sheet.com/%%",
+    "emojilist": "\/me Emoji lista: http://bit.ly/2aNFFYh RCS emotes: https://rcs.radiant.dj/emotes ",
     "notinwaitlist": "\/me @%%NAME%%, nisi na listi \u010dekanja.",
     "youarenext": "\/me @%%NAME%%, you are DJing after this song.",
     "youaredj": "\/me @%%NAME%%, you are currently DJing.",
