@@ -1192,6 +1192,22 @@
                     API.moderateDeleteChat(chat.cid);
                     return true;
                 }
+                if (msg.indexOf('ciker') > -1) {
+                    API.moderateDeleteChat(chat.cid);
+                    return true;
+                }
+                if (msg.indexOf('http://origem-woot.tk') > -1) {
+                    API.moderateDeleteChat(chat.cid);
+                    return true;
+                }
+                if (msg.indexOf('party.dj') > -1) {
+                    API.moderateDeleteChat(chat.cid);
+                    return true;
+                }
+                 if (msg.indexOf('https://plug.dj/') > -1) {
+                    API.moderateDeleteChat(chat.cid);
+                    return true;
+                }
 
                 var rlJoinChat = basicBot.chat.roulettejoin;
                 var rlLeaveChat = basicBot.chat.rouletteleave;
