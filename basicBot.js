@@ -241,7 +241,7 @@
         name: "Lilly",
         loggedInID: null,
         scriptLink: "https://rawgit.com/NatnatBot/basicBot/master/basicBot.js",
-        cmdLink: "http://nextexitplugdj.weebly.com/lilly.html",
+        cmdLink: "https://goo.gl/sKhdzA",
         chatLink: "https://rawgit.com/NatnatBot/basicBot/master/lang/sr.json",
         chat: null,
         loadChat: loadChat,
