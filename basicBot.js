@@ -242,15 +242,15 @@
         loggedInID: null,
         scriptLink: "https://rawgit.com/NatnatBot/basicBot/master/basicBot.js",
         cmdLink: "https://goo.gl/sKhdzA",
-        chatLink: "https://rawgit.com/NatnatBot/basicBot/master/lang/sr.json",
+        chatLink: "https://github.com/NatnatBot/basicBot/blob/master/lang/en.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
             botName: "Lilly",
-            language: "serbian",
-            chatLink: "https://rawgit.com/NatnatBot/basicBot/master/lang/sr.json",
+            language: "English",
+            chatLink: "https://github.com/NatnatBot/basicBot/blob/master/lang/en.json",
             scriptLink: "https://rawgit.com/NatnatBot/basicBot/master/basicBot.js",
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
